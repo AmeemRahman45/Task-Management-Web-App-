@@ -208,7 +208,3 @@ function deleteTask(taskId) {
     </li>
 </ol>
 <hr>
-<p>
-    Feel free to explore the code and customize the project according to your needs. Happy coding! 🎉
-</p>
-<hr>
