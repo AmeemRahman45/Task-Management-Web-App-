@@ -124,3 +124,88 @@ li {
     background-color: #f9f9f9;
     padding: 15px;
     margin-bottom: 10px;
+    border: 1px solid #e1e1e1;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+li:hover {
+    background-color: #f1f1f1;
+}
+
+li.completed {
+    text-decoration: line-through;
+    color: #999;
+}
+
+.task-actions {
+    display: flex;
+}
+
+.task-actions button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+}
+        </pre>
+    </li>
+    <li>
+        <h4>JavaScript Functionality</h4>
+        <pre>
+let tasks = [];
+
+function addTask() {
+    const taskInput = document.getElementById('taskInput');
+    const taskName = taskInput.value.trim();
+
+    if (taskName === '') {
+        alert('Please enter a task name.');
+        return;
+    }
+
+    const task = {
+        id: Date.now(),
+        name: taskName,
+        completed: false
+    };
+
+    tasks.push(task);
+    taskInput.value = '';
+
+    renderTasks();
+}
+
+function renderTasks() {
+    const taskList = document.getElementById('taskList');
+    taskList.innerHTML = '';
+
+    tasks.forEach(task => {
+        const li = document.createElement('li');
+        li.className = task.completed ? 'completed' : '';
+        li.innerHTML = `
+            ${task.name}
+            &lt;div class="task-actions"&gt;
+                &lt;button class="complete" onclick="toggleComplete(${task.id})"&gt;✔&lt;/button&gt;
+                &lt;button class="delete" onclick="deleteTask(${task.id})"&gt;✘&lt;/button&gt;
+            &lt;/div&gt;
+        `;
+        taskList.appendChild(li);
+    });
+}
+
+function toggleComplete(taskId) {
+    tasks = tasks.map(task => task.id === taskId ? { ...task, completed: !task.completed } : task);
+    renderTasks();
+}
+
+function deleteTask(taskId) {
+    tasks = tasks.filter(task => task.id !== taskId);
+    renderTasks();
+}
+        </pre>
+    </li>
+</ol>
+<hr>
