@@ -1,6 +1,6 @@
 <h1>📝 Task Manager 📝</h1>
 <p>
-    Welcome to the Stylish Task Manager project! This web application allows users to manage tasks efficiently with an intuitive and visually appealing interface.
+    Welcome to the Task Manager project! This web application allows users to manage tasks efficiently with an intuitive and visually appealing interface.
 </p>
 <br>
 <h3>🚀 Features</h3>
